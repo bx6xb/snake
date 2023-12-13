@@ -16,12 +16,13 @@ class Snake {
   private restartBtn: HTMLElement
   private intervalId: ReturnType<typeof setInterval> = setInterval(() => {},
   10000)
-  private snakePosition: number[]
+  private snakePosition: number[] = [0, 0]
   private foodPosition: number[] = [0, 0]
   private scoreElement: HTMLElement
   private score: number = 0
   private recordElement: HTMLElement
   private record: number = +(localStorage.getItem("record") ?? 0)
+  private directionIsChanged: boolean = false
 
   private directionIndexes: Dict = {
     w: -1,
@@ -54,7 +55,8 @@ class Snake {
     document.addEventListener("keypress", (e) => {
       if (
         e.key in this.oppositeDirections &&
-        this.direction !== this.oppositeDirections[e.key]
+        this.direction !== this.oppositeDirections[e.key] &&
+        !this.directionIsChanged
       ) {
         this.changeDirection(e.key)
       }
@@ -75,6 +77,7 @@ class Snake {
   }
 
   private changeDirection = (direction: string): void => {
+    this.directionIsChanged = true
     this.direction = direction
   }
 
@@ -94,10 +97,12 @@ class Snake {
     this.fields[this.y][this.x].classList.remove("selected")
     this.y = 7
     this.x = 2
+    this.snakePosition = [this.y, this.x]
     this.direction = "d"
     this.fields[this.y][this.x].classList.add("selected")
 
     this.intervalId = setInterval(() => {
+      this.directionIsChanged = false
       this.moveSnake(this.direction)
     }, 200)
   }
@@ -144,6 +149,7 @@ class Snake {
           this.gameOver()
         }
       }
+      this.snakePosition = [this.y, this.x]
       this.fields[this.y][this.x].classList.add("selected")
 
       if (this.foodPosition.join("") === [this.y, this.x].join("")) {
