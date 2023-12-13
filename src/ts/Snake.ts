@@ -73,7 +73,9 @@ class Snake {
       this.getRandomNumber(0, this.size),
       this.getRandomNumber(0, this.size),
     ]
-    this.fields[this.foodPosition[0]][this.foodPosition[1]].innerHTML = "1"
+    this.fields[this.foodPosition[0]][
+      this.foodPosition[1]
+    ].innerHTML = `<div class="food"></div>`
   }
 
   private changeDirection = (direction: string): void => {
@@ -94,12 +96,12 @@ class Snake {
   }
 
   private start = (): void => {
-    this.fields[this.y][this.x].classList.remove("selected")
+    this.fields[this.y][this.x].classList.remove("snake")
     this.y = 7
     this.x = 2
     this.snakePosition = [this.y, this.x]
     this.direction = "d"
-    this.fields[this.y][this.x].classList.add("selected")
+    this.fields[this.y][this.x].classList.add("snake")
 
     this.intervalId = setInterval(() => {
       this.directionIsChanged = false
@@ -123,11 +125,12 @@ class Snake {
     this.overlay.classList.add("show")
     this.restartBtn.addEventListener("click", this.restart)
     this.score = 0
+    this.scoreElement.innerHTML = "0"
   }
 
   private moveSnake = (direction: string): void => {
     if (["w", "a", "s", "d"].includes(direction)) {
-      this.fields[this.y][this.x].classList.remove("selected")
+      this.fields[this.y][this.x].classList.remove("snake")
       if (["w", "s"].includes(direction)) {
         if (
           this.y + this.directionIndexes[direction] >= 0 &&
@@ -150,7 +153,7 @@ class Snake {
         }
       }
       this.snakePosition = [this.y, this.x]
-      this.fields[this.y][this.x].classList.add("selected")
+      this.fields[this.y][this.x].classList.add("snake")
 
       if (this.foodPosition.join("") === [this.y, this.x].join("")) {
         this.increaseScore()

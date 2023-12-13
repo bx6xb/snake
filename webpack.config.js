@@ -28,6 +28,26 @@ module.exports = (env) => {
           test: /\.ts$/,
           use: "ts-loader",
         },
+        {
+          test: /\.(woff2?|eot|ttf|otf|svg)$/,
+          use: {
+            loader: "file-loader",
+            options: {
+              name: "[contenthash].[ext]",
+              outputPath: "fonts/",
+            },
+          },
+        },
+        {
+          test: /\.(png|jpg|jpeg)$/,
+          use: {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+              outputPath: "img/",
+            },
+          },
+        },
       ],
     },
     plugins: [
