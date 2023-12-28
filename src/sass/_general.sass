@@ -13,7 +13,7 @@ body
   grid-template-rows: repeat(15, 1fr)
   grid-template-columns: repeat(15, 1fr)
   margin: 0 auto 30px auto
-.field 
+.cell 
   width: 100%
   height: 100%
   display: flex
@@ -25,22 +25,8 @@ body
 .snake
   background-color: $green !important
 .food
-  background-color: $red
-  width: 20px
-  height: 20px
+  background-color: $red !important
   border-radius: 100%
-#restart-btn
-  width: 150px
-  height: 50px
-  font-size: 20px
-  background-color: $green
-  color: $w
-  border: none
-  border-radius: 25px
-  cursor: pointer
-  display: flex
-  justify-content: center
-  align-items: center
 #field-size
   width: 75px
   height: 30px
@@ -49,22 +35,6 @@ body
   font-size: 18px
   margin: 10px auto
   display: block
-.overlay
-  width: 100%
-  height: 100%
-  background-color: rgba(0, 0, 0, 0.7)
-  position: absolute
-  top: 0
-  display: none
-  justify-content: center
-  align-items: center
-  flex-direction: column
-.text
-  margin-bottom: 15px
-  text-align: center
-  font-size: 30px
-.show
-  display: flex
 .score
   margin-top: 40px
   text-align: center
@@ -74,24 +44,3 @@ body
 .record
   font-size: 20px
   margin-top: -5px
-.buttons
-  display: flex
-  width: 600px
-  margin: 0 auto 
-  justify-content: start
-#settings-btn
-  color: $w
-  font-size: 20px
-  display: flex
-  justify-content: center
-  align-items: center
-  min-width: 150px
-  height: 50px
-  border-radius: 5px
-  background: $gray
-  border: none
-  padding: 11px 15px
-.settings-img
-  width: 25px
-  height: 25px
-  margin-right: 15px
