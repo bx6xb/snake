@@ -54,6 +54,7 @@ module.exports = (env) => {
       new HtmlWebpackPlugin({
         template: "src/index.html",
         inject: "body",
+        favicon: 'src/img/snake.png'
       }),
       new MiniCssExtractPlugin({
         filename: "style.css",

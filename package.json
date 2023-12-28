@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "homepage": "https://bx6xb.github.io/snake",
   "scripts": {
     "start": "webpack serve --env development",
     "dev": "webpack --env development",
-    "prod": "webpack --env production"
+    "prod": "webpack --env production",
+    "deploy": "gh-pages -d build",
+    "predeploy": "yarn run prod"
   },
   "keywords": [],
   "author": "Yan Yu <bx6xbChosen1@gmail.com>",
