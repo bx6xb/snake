@@ -7,7 +7,7 @@
   "scripts": {
     "start": "webpack serve --env development",
     "dev": "webpack --env development",
-    "prod": "webpack --env production",
+    "build": "webpack --env production",
     "deploy": "gh-pages -d build",
     "predeploy": "yarn run prod"
   },
