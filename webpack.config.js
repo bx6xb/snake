@@ -9,7 +9,7 @@ module.exports = (env) => {
     mode: mode,
     entry: "./src/index.ts",
     output: {
-      path: path.resolve(__dirname, "dist"),
+      path: path.resolve(__dirname, "build"),
       filename: "index.[contenthash].js",
       clean: true,
     },
@@ -54,7 +54,7 @@ module.exports = (env) => {
       new HtmlWebpackPlugin({
         template: "src/index.html",
         inject: "body",
-        favicon: 'src/img/snake.png'
+        favicon: "src/img/snake.png",
       }),
       new MiniCssExtractPlugin({
         filename: "style.css",

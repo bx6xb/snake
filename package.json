@@ -9,7 +9,7 @@
     "dev": "webpack --env development",
     "build": "webpack --env production",
     "deploy": "gh-pages -d build",
-    "predeploy": "yarn run prod"
+    "predeploy": "yarn run build"
   },
   "keywords": [],
   "author": "Yan Yu <bx6xbChosen1@gmail.com>",
@@ -26,6 +26,7 @@
     "typescript": "^5.3.3",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^4.15.1"
+    "webpack-dev-server": "^4.15.1",
+    "gh-pages": "^6.1.1"
   }
 }
